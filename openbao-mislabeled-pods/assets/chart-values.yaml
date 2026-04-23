@@ -69,7 +69,7 @@ server:
         storage "raft" {
           path = "/openbao/data"
           retry_join {
-            leader_api_addr = "http://openbao-internal.dev-yannisr.svc.cluster.local:8200"
+            leader_api_addr = "http://openbao-internal.openbao.svc.cluster.local:8200"
           }
         }
         
