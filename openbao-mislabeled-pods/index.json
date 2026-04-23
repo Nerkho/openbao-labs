@@ -1,6 +1,6 @@
 {
   "title": "Fire-drill: mislabeled OpenBao pods",
-  "description": "Learn how to integrate External Secrets Operator with OpenBao",
+  "description": "",
   "details": {
     "intro": {
       "text": "intro.md",
