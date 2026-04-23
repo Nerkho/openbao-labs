@@ -6,7 +6,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    openbao-active: true
+    openbao-active: "true"
   ports:
     - port: 8200
       targetPort: 8200

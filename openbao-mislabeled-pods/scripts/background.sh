@@ -16,7 +16,7 @@ kubectl create secret -n openbao generic  openbao-unseal-key --from-file=unseal-
 helm repo add openbao https://openbao.github.io/openbao-helm
 helm repo update
 helm install openbao openbao/openbao -f /root/assets/chart-values.yaml --version $BAO_HELM_VERSION --namespace openbao
-kubectl apply -f /root/assets/node-port.yaml -n openbao
+kubectl apply -f /root/assets/node-port.yaml
 kubectl wait -n openbao --for=condition=Ready pod/openbao-0
 
 # Deploy External Secrets
