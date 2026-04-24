@@ -39,9 +39,34 @@ When deploying OpenBao on Kubernetes, the [service registration](https://openbao
 
 For example the label `openbao-active: true` will get added to the leader pod. When deploying OpenBao with the Helm chart, a service `openbao-active` will get provisionned and use that label to target the leader.
 
+We can use the commands below to compare in our environment and see that the pod labelled with `openbao-active: true` is also the current leader node from OpenBao perspective.
+
+* `kubectl get pods -n openbao -l openbao-active=true`
+
+```
+NAME        READY   STATUS    RESTARTS   AGE
+openbao-0   1/1     Running   0          4m22s
+``` 
+
+* `bao operator raft list-peers`
+
+```
+Node         Address                            State       Voter
+----         -------                            -----       -----
+openbao-0    openbao-0.openbao-internal:8201    leader      true
+openbao-1    openbao-1.openbao-internal:8201    follower    true
+openbao-2    openbao-2.openbao-internal:8201    follower    true
+``` 
+
 In this scenario we will use the `openbao-node-port` svc with a similar configuration to only target the leader pod.
 
 * `kubectl describe svc -n openbao openbao-node-port`
+
+```
+...
+Selector:                 openbao-active=true
+...
+```
 
 ## Simluate activity
 
@@ -51,6 +76,6 @@ In this lab, we are going to use a script to simulate interactions with OpenBao.
 
 Then run the script stored at `/home/root/assets/simulate.sh`:
 
-* `./home/root/assets/simulate.sh`
+* `sh /home/root/assets/simulate.sh`
 
 This will create a bunch of namespaces with KV secrets engines inside OpenBao.
