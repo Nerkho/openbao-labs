@@ -2,7 +2,7 @@
 
 Let's try running the script again.
 
-* `./home/root/assets/simulate.sh`
+* `bash /root/assets/simulate.sh`
 
 Ho ho, we got some errors there. 
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/bash
 
 for i in {1..15} ; do
   name=$(echo $RANDOM | md5sum | head -c 15; echo;)

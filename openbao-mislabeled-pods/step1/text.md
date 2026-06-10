@@ -74,8 +74,8 @@ In this lab, we are going to use a script to simulate interactions with OpenBao.
 
 * `bao login -method=userpass username=admin`
 
-Then run the script stored at `/home/root/assets/simulate.sh`:
+Then run the script stored at `/root/assets/simulate.sh`:
 
-* `sh /home/root/assets/simulate.sh`
+* `bash /root/assets/simulate.sh`
 
 This will create a bunch of namespaces with KV secrets engines inside OpenBao.
